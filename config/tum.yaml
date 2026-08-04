@@ -1,0 +1,7 @@
+# TODO: fill in the official Cortical Peaks Challenge 2026 competition
+# server address once published by the organizers (neuroTUM).
+game_bridge:
+  ros__parameters:
+    server_host: "TODO_TUM_SERVER_HOST"
+    server_port: 5000
+    command_topic: "/game/command"
