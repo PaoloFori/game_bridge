@@ -5,7 +5,7 @@ separate controller node) and forwards them to the game server as CMD
 messages, while handling registration and heartbeat on its own. Which
 server it talks to (local vs. the competition server) is purely a matter
 of the `server_host`/`server_port` parameters -- see config/local.yaml and
-config/tum.yaml.
+config/host.yaml.
 """
 
 from __future__ import annotations
@@ -88,6 +88,7 @@ class GameBridgeNode(Node):
             return
         cmd = CmdMessage(session_token=self._session_token, device=DeviceType.BCI, content=msg.data)
         self._sock.sendto(to_bytes(cmd), self._server_address)
+        self.get_logger().debug(f"Sent CMD {msg.data} to {self._server_address}")
 
     def _network_listener(self) -> None:
         while self._running:

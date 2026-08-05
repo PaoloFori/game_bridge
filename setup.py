@@ -10,7 +10,7 @@ setup(
         ("share/ament_index/resource_index/packages", [f"resource/{package_name}"]),
         (f"share/{package_name}", ["package.xml"]),
         (f"share/{package_name}/launch", ["launch/bridge.launch.py"]),
-        (f"share/{package_name}/config", ["config/local.yaml", "config/tum.yaml"]),
+        (f"share/{package_name}/config", ["config/local.yaml", "config/host.yaml"]),
     ],
     install_requires=["setuptools"],
     zip_safe=True,

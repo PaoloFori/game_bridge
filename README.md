@@ -38,12 +38,23 @@ implemented here.
 | `display_name`    | `game_bridge-<host>` | Name shown in the server UI               |
 | `command_topic`   | `/game/command`      | Topic to subscribe to for game commands   |
 
+These defaults live in the node code, but in practice they're always set via
+the `config/<target>.yaml` file selected at launch time (see below) rather
+than left at their code defaults.
+
 ### Running
 
 ```bash
-ros2 launch game_bridge bridge.launch.py target:=local   # 127.0.0.1:5000
-ros2 launch game_bridge bridge.launch.py target:=tum     # config/tum.yaml
+ros2 launch game_bridge bridge.launch.py target:=local   # config/local.yaml -> 127.0.0.1:5000
+ros2 launch game_bridge bridge.launch.py target:=host    # config/host.yaml
 ```
 
-`config/tum.yaml` still has a placeholder host -- fill it in once the
-organizers publish the competition server address.
+`config/host.yaml` still has a placeholder host -- fill it in with the
+competition server address once the organizers publish it.
+
+### Changing the name shown in the server UI
+
+`display_name` (set to `"UniPD"` by default in both `config/local.yaml` and
+`config/host.yaml`) is what appears for this BCI in the game server's
+**CONNECTIONS** tab. It's a plain YAML value, not hardcoded anywhere -- edit
+it in the config file for whichever `target` you're using.

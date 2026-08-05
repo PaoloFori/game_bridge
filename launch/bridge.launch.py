@@ -1,8 +1,8 @@
-"""Launch game_bridge against either the local or the TUM game server.
+"""Launch game_bridge against either the local or a remote game server.
 
 Usage:
     ros2 launch game_bridge bridge.launch.py target:=local
-    ros2 launch game_bridge bridge.launch.py target:=tum
+    ros2 launch game_bridge bridge.launch.py target:=host
 """
 
 from __future__ import annotations
@@ -17,7 +17,7 @@ from launch.launch_description_entity import LaunchDescriptionEntity
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 
-VALID_TARGETS = ("local", "tum")
+VALID_TARGETS = ("local", "host")
 
 
 def _launch_setup(context: LaunchContext, *_args: object, **_kwargs: object) -> list[LaunchDescriptionEntity]:
@@ -45,7 +45,7 @@ def generate_launch_description() -> LaunchDescription:
             DeclareLaunchArgument(
                 "target",
                 default_value="local",
-                description="Which server to connect to: 'local' or 'tum'.",
+                description="Which server to connect to: 'local' or 'host'.",
             ),
             OpaqueFunction(function=_launch_setup),
         ]
