@@ -2,7 +2,7 @@
 # server address once published by the organizers (neuroTUM).
 game_bridge:
   ros__parameters:
-    server_host: "TODO_SERVER_HOST"
+    server_host: "147.162.98.20"
     server_port: 5000
     command_topic: "/game/command"
     # Shown as this BCI's name in the game server's CONNECTIONS tab. Change
