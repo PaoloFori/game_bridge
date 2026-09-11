@@ -7,4 +7,4 @@ game_bridge:
     command_topic: "/game/command"
     # Shown as this BCI's name in the game server's CONNECTIONS tab. Change
     # freely, e.g. to your team name.
-    display_name: "UniPD"
+    display_name: "IAS-Lab"
